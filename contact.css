@@ -112,25 +112,8 @@ ul li a:hover{
     color: black;
 } 
 @media screen and (max-width: 480px) {
-  .title {
-      font-size: 4em; 
-      margin-top: 50px; 
-  }
-  .nameimage {
-    grid-template-columns: auto; 
-    justify-content: flex-start;
-    padding-left: 10px; 
-}
-
-.bg {
-    display: block;
-    margin: 0 auto; 
-    margin-bottom: 10px; 
-}
-
-.font-effect {
-    text-align: right; 
-    font-size: 25px; 
+h1{
+  display: none;
 }
 }
   .contact-form {
