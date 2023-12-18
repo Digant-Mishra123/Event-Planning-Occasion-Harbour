@@ -37,10 +37,18 @@ document.querySelector('.cross').addEventListener('click', function() {
     closeMenu(); 
 });
 
-document.querySelector('.explore').addEventListener('click', function() {
-    const cardsContainer = document.getElementById('cards');
-    cardsContainer.scrollIntoView({ behavior: 'smooth' });
+document.addEventListener('DOMContentLoaded', function() {
+    // const exploreButton = document.getElementById('explore');
+    const cardsContainer = document.querySelector('.container');
+
+    exploreButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        if (cardsContainer) {
+            cardsContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
 });
+
 document.getElementById('eventlink').addEventListener('click', function(event) {
     event.preventDefault();
     
