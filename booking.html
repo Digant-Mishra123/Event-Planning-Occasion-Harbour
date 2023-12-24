@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="./booking.css">
+    <!-- Add your CSS links here -->
+</head>
+<body>
+    <header>
+        <h1>Product Name</h1>
+    </header>
+
+    <main>
+        <section class="product-details">
+            <div class="product">
+                <img src="/images/wedding_venue.jpg" alt="Wedding Venue">
+                <h3>Wedding Venue</h3>
+                <p>Choose your perfect wedding venue for your special day.</p>
+                <span class="price"><b>Price : </b>$1000 - $5000</span><br>
+                <button onclick="addToCart('Wedding Venue',3000)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="/images/Bridal_Gown.jpg" alt="Bridal Gown">
+                <h3>Bridal Gown</h3>
+                <p>Find the most stunning gown for the bride.</p>
+                <span class="price"><b>Price : </b>$500 - $1500</span><br>
+                <button onclick="addToCart('Bridal Gown',700)">Add to Cart</button>
+            </div>
+        
+            <div class="product">
+                <img src="/images/Wedding_Cake.jpg" alt="Wedding Cake">
+                <h3>Wedding Cake</h3>
+                <p>Order a delicious and beautifully decorated wedding cake.</p>
+                <span class="price"><b>Price : </b>$200 - $800</span><br>
+                <button onclick="addToCart('Wedding Cake',400)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="/images/Wedding_Flowers.avif" alt="Wedding Flowers">
+                <h3>Wedding Flowers</h3>
+                <p>Choose stunning floral arrangements for your wedding.</p>
+                <span class="price"><b>Price : </b>$50 - $500</span><br>
+                <button onclick="addToCart('Wedding Flowers',100)">Add to Cart</button>
+            </div>
+        
+            <div class="product">
+                <img src="/images/Wedding_Photographer.webp" alt="Wedding Photographer">
+                <h3>Wedding Photographer</h3>
+                <p>Hire a professional photographer to capture every moment.</p>
+                <span class="price"><b>Price : </b>$1000 - $3000</span><br>
+                <button onclick="addToCart('Wedding Photographer',1500)">Add to Cart</button>
+            </div>
+        
+            <div class="product">
+                <img src="/images/wedding_venue.jpg" alt="Wedding Band">
+                <h3>Wedding Band</h3>
+                <p>Select the perfect band for your wedding ceremony.</p>
+                <span class="price"><b>Price : </b>$500 - $2000</span><br>
+                <button onclick="addToCart('Wedding Band',600)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="/images/wedding_venue.jpg" alt="Wedding Car Rental">
+                <h3>Wedding Car Rental</h3>
+                <p>Hire luxury cars for the wedding transportation.</p>
+                <span class="price"><b>Price : </b>$300 - $1000</span><br>
+                <button onclick="addToCart('Wedding Car Rental',750)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="/images/wedding_venue.jpg" alt="Lighting Effects">
+                <h3>Lighting Effects</h3>
+                <p>Enhance your wedding ambiance with mesmerizing lighting.</p>
+                <span class="price"><b>Price : </b>$200 - $800</span><br>
+                <button onclick="addToCart('Lighting Effects',500)">Add to Cart</button>
+            </div>
+        
+            <div class="product">
+                <img src="/images/wedding_venue.jpg" alt="Wedding Catering">
+                <h3>Wedding Catering</h3>
+                <p>Delicious and diverse catering services for your wedding.</p>
+                <span class="price"><b>Price : </b>$20 - $50 per plate</span><br>
+                <button onclick="addToCart('Wedding Catering',30)">Add to Cart</button>
+            </div>
+        
+            <div class="product">
+                <img src="/images/wedding_venue.jpg" alt="Live Band">
+                <h3>Live Band</h3>
+                <p>Hire a live band to entertain your guests during the event.</p>
+                <span class="price"><b>Price : </b>$1000 - $5000</span><br>
+                <button onclick="addToCart('Live Band',1800)">Add to Cart</button>
+            </div>
+        
+            <div class="product">
+                <img src="/images/wedding_venue.jpg" alt="DJ Services">
+                <h3>DJ Services</h3>
+                <p>Hire a DJ to create an electrifying atmosphere for your wedding.</p>
+                <span class="price"><b>Price : </b>$300 - $1000</span><br>
+                <button onclick="addToCart('DJ Services',650)">Add to Cart</button>
+            </div>
+        </section>
+
+        <aside class="cart">
+            <h2>Shopping Cart</h2>
+            <ul id="cartItems">
+                <!-- Cart items will be displayed here -->
+            </ul>
+            <p>Total: $<span id="totalPrice">0</span></p>
+            <button onclick="checkout()">Checkout</button>
+        </aside>
+    </main>
+
+    <script>
+        const cartItems = [];
+
+        function addToCart(productName, price) {
+            cartItems.push({ name: productName, price: price });
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartList = document.getElementById('cartItems');
+            cartList.innerHTML = '';
+            let total = 0;
+
+            cartItems.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item.name} - $${item.price}`;
+                cartList.appendChild(listItem);
+                total += item.price;
+            });
+
+            const totalPrice = document.getElementById('totalPrice');
+            totalPrice.textContent = total.toFixed(2);
+        }
+
+        function checkout() {
+            // Logic for checkout, redirecting to payment, etc.
+            // Example: window.location.href = 'checkout.html';
+        }
+    </script>
+</body>
+</html>
