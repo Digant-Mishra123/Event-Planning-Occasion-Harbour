@@ -1,60 +1,42 @@
+// const closeMenu = () => {
+//   const menu = document.querySelector('.menu-items');
+//   menu.classList.remove('show-menu');
+// };
 
-function closeMenu() {
-    const menu = document.querySelector('.menu-items');
-    const hamburger = document.querySelector('.hamburger');
-    const cross = document.querySelector('.cross');
-    
-    menu.classList.remove('show-menu');
-    hamburger.style.display = 'block';
-    cross.style.display = 'none';
-}
-  
+// const toggleMenu = () => {
+//   const menu = document.querySelector('.menu-items');
+//   menu.classList.toggle('show-menu');
+// };
+// document.querySelector('.hamburger').addEventListener('click', toggleMenu);
+// document.querySelector('.cross').addEventListener('click', closeMenu);
 
-document.addEventListener('click', function(event) {
-    const menu = document.querySelector('.menu-items');
-    const hamburger = document.querySelector('.hamburger');
-    const cross = document.querySelector('.cross');
-    
-  
-    if (!menu.contains(event.target) && event.target !== hamburger && event.target !== cross) {
-        closeMenu(); 
-    }
-});
-  
+const closeMenu = () => {
+  const menu = document.querySelector('.menu-items');
+  menu.classList.remove('show-menu');
+  document.querySelector('.hamburger').style.display = 'block'; // Show hamburger icon
+  document.querySelector('.cross').style.display = 'none'; // Hide cross icon
+};
 
-document.querySelector('.hamburger').addEventListener('click', function() {
-    const menu = document.querySelector('.menu-items');
-    const hamburger = document.querySelector('.hamburger');
-    const cross = document.querySelector('.cross');
-    
-    menu.classList.toggle('show-menu');
-    hamburger.style.display = hamburger.style.display === 'none' ? 'block' : 'none';
-    cross.style.display = cross.style.display === 'none' ? 'block' : 'none';
-});
-  
+const toggleMenu = () => {
+  const menu = document.querySelector('.menu-items');
+  menu.classList.toggle('show-menu');
+  document.querySelector('.hamburger').style.display = 'none'; // Hide hamburger icon
+  document.querySelector('.cross').style.display = 'block'; // Show cross icon
+};
 
-document.querySelector('.cross').addEventListener('click', function() {
-    closeMenu(); 
-});
+document.querySelector('.hamburger').addEventListener('click', toggleMenu);
+document.querySelector('.cross').addEventListener('click', closeMenu);
 
 document.addEventListener('DOMContentLoaded', function() {
-    // const exploreButton = document.getElementById('explore');
-    const cardsContainer = document.querySelector('.container');
-
-    exploreButton.addEventListener('click', function(event) {
-        event.preventDefault();
-        if (cardsContainer) {
-            cardsContainer.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-});
-
-document.getElementById('eventlink').addEventListener('click', function(event) {
+  document.querySelector('.event-link').addEventListener('click', function(event) {
     event.preventDefault();
-    
-    const container = document.querySelector('.container');
-    
-    if (container) {
-        container.scrollIntoView({ behavior: 'smooth' });
-    }
+    const cardsSection = document.getElementById('cards');
+    cardsSection.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelector('.explore').addEventListener('click', function() {
+    const cardsSection = document.getElementById('cards');
+    cardsSection.scrollIntoView({ behavior: 'smooth' });
+  });
 });
